@@ -7,7 +7,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddOData(options =>
+{
+    options.EnableQueryFeatures();
+});
 
 builder.Services.AddOpenApi();
 
